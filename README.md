@@ -1,6 +1,6 @@
 # Hash Code 2020 reposditory
 
-###Team mates:
+### Team mates:
 
 Khaled Alkoby
 Yitzhak Znati

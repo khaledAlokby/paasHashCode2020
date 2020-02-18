@@ -2,7 +2,7 @@
 
 ### Team mates:
 
-Khaled Alkoby
+Khaled Alokby
 Yitzhak Znati
 Nir Pinco
 Eldar Carmeli

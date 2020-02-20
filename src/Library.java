@@ -9,6 +9,7 @@ public class Library {
     int booksPerDay;
     int optimalBooks;
     List<Book> books = new ArrayList<>();
+    List<Book> scannedBooks = new ArrayList<>();
     public int workingDays(int day){
         return GoogleBooks.daysToEnd-signUpProcess-day;
     }

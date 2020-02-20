@@ -1,6 +1,10 @@
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.Properties;
 
 public class IO {
@@ -83,11 +87,23 @@ public class IO {
         br.close();
     }
 
-    public static void write2file() throws IOException {
-        OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(outputFile,false), StandardCharsets.UTF_8);
-        out.flush();
-        out.write("here we go");
-        out.close();
+    public static void writeOutPutToFile (List<Library> libs){
+        Path path = Paths.get("c:/output.txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(path))
+        {
+            List<OutPutFile> outPouts = LibraryOutPut.generateOutPutList(libs);
+            writer.write(libs.size());
+            writer.newLine();
+            for(OutPutFile o : outPouts){
+                writer.write(o.getIdAndBooksNum());
+                writer.newLine();
+                writer.write(o.getBooksIds());
+                writer.newLine();
+            }
+        }
+        catch (Exception e){
+
+        }
     }
 
 }

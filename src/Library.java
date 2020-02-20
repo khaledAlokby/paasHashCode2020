@@ -7,11 +7,12 @@ public class Library {
     int numOfBooks;
     int signUpProcess;
     int booksPerDay;
+    int optimalBooks;
     List<Book> books = new ArrayList<>();
-    public int workingDays(){
-        return GoogleBooks.daysToEnd-signUpProcess;
+    public int workingDays(int day){
+        return GoogleBooks.daysToEnd-signUpProcess-day;
     }
-    public int maxScore(){
+    public int maxScore(int day){
         books.sort(new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
@@ -19,11 +20,13 @@ public class Library {
             }
         });
         int result = 0;
-        int booksMax = booksPerDay*workingDays();
+        int booksMax = booksPerDay*workingDays(day);
+        optimalBooks = booksMax;
         for (int i = 0; i < booksMax; i++) {
              result += books.get(i).score;
         }
         return result;
     }
+
 
 }

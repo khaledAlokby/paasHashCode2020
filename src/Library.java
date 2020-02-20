@@ -31,7 +31,14 @@ public class Library {
 
     public void scan(int day){
         maxScore(day);
-        for (int i = 0; i < optimalBooks; i++) {
+        int diff=0;
+        for (int i = 0; i < optimalBooks+diff; i++) {
+            if (i >= books.size())
+                break;
+            if (GoogleBooks.scannedGlobal.contains(books.get(i))){
+                diff++;
+                continue;
+            }
             scannedBooks.add(books.get(i));
         }
     }

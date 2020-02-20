@@ -7,4 +7,5 @@ public class GoogleBooks {
     static Map<Integer,Book> allBooks = new HashMap<>();
     static List<Library> libraries = new ArrayList<>();
     static HashSet<Library> scannedLibraries = new HashSet<>();
+    static Set<Book> scannedGlobal = new HashSet<>();
 }

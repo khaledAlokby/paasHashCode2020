@@ -24,12 +24,7 @@ public class Logic {
                 break;
             optLibrary.scan(day);
             day += optLibrary.signUpProcess;
-            if (optLibrary.scannedBooks.size() != 0) {
-                output.add(optLibrary);
-                for (Book book : optLibrary.scannedBooks){
-                    GoogleBooks.scannedGlobal.add(book);
-                }
-            }
+            output.add(optLibrary);
             GoogleBooks.scannedLibraries.add(optLibrary);
             GoogleBooks.libraries.sort(new Comparator<Library>() {
                 @Override

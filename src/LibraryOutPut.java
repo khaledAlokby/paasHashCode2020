@@ -9,7 +9,7 @@ public class LibraryOutPut {
 	}
 	
 	public static OutPutFile convertLibraryToDTO(Library library) {
-		String idAndBookNames = library.id + " " + library.books.size();
+		String idAndBookNames = library.id + " " + library.scannedBooks.size();
 		String booksIds = "";
 		for (Book b : library.scannedBooks) {
 			booksIds += b.id + " ";

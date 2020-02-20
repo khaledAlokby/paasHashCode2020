@@ -100,6 +100,8 @@ public class IO {
                 writer.write(o.getBooksIds());
                 writer.newLine();
             }
+            writer.flush();
+            writer.close();
         }
         catch (Exception e){
 

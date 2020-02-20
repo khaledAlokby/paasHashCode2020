@@ -39,7 +39,10 @@ public class IO {
         st = br.readLine();
         if (st == null)
             System.exit(-1);
-        String[] meta = st.split(" ");
+        Images images = new Images();
+        images.formalNumberOfImages = Integer.valueOf(st);
+        System.out.println(images.formalNumberOfImages);
+        Logic.startLogic();
 
        /* PizzaHandler.Maximum = Integer.valueOf(meta[0]);
         PizzaHandler.typesSize = Integer.valueOf(meta[1]);

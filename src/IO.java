@@ -48,6 +48,7 @@ public class IO {
         for (int i = 0; i < GoogleBooks.bookNumber; i++) {
             Book book = new Book();
             book.id = i;
+
             book.score = Integer.valueOf(booksScores[i]);
             GoogleBooks.allBooks.put(book.id,book);
         }
@@ -65,6 +66,7 @@ public class IO {
                 int bookId = Integer.valueOf(booksInLib[j]);
                 library.books.add(GoogleBooks.allBooks.get(bookId));
             }
+            GoogleBooks.libraries.add(library);
         }
         Logic.startLogic();
 

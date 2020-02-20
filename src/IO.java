@@ -39,9 +39,33 @@ public class IO {
         st = br.readLine();
         if (st == null)
             System.exit(-1);
-        Images images = new Images();
-        images.formalNumberOfImages = Integer.valueOf(st);
-        System.out.println(images.formalNumberOfImages);
+        String[] firstLine = st.split(" ");
+        GoogleBooks.bookNumber = Integer.valueOf(firstLine[0]);
+        GoogleBooks.librariesNum = Integer.valueOf(firstLine[1]);
+        GoogleBooks.daysToEnd = Integer.valueOf(firstLine[2]);
+        st = br.readLine();
+        String[] booksScores = st.split(" ");
+        for (int i = 0; i < GoogleBooks.bookNumber; i++) {
+            Book book = new Book();
+            book.id = i;
+            book.score = Integer.valueOf(booksScores[i]);
+            GoogleBooks.allBooks.put(book.id,book);
+        }
+        for (int i = 0; i < GoogleBooks.librariesNum; i++) {
+            st = br.readLine();
+            String[] libInfo = st.split(" ");
+            Library library = new Library();
+            library.id = i;
+            library.numOfBooks = Integer.valueOf(libInfo[0]);
+            library.signUpProcess = Integer.valueOf(libInfo[1]);
+            library.booksPerDay = Integer.valueOf(libInfo[2]);
+            st = br.readLine();
+            String[] booksInLib = st.split(" ");
+            for (int j = 0; j < library.numOfBooks; j++) {
+                int bookId = Integer.valueOf(booksInLib[j]);
+                library.books.add(GoogleBooks.allBooks.get(bookId));
+            }
+        }
         Logic.startLogic();
 
        /* PizzaHandler.Maximum = Integer.valueOf(meta[0]);

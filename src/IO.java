@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 public class IO {
@@ -51,6 +52,13 @@ public class IO {
         PizzaHandler.optemizeSlices();*/
 
         br.close();
+    }
+
+    public static void write2file() throws IOException {
+        OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(outputFile,false), StandardCharsets.UTF_8);
+        out.flush();
+        out.write("here we go");
+        out.close();
     }
 
 }

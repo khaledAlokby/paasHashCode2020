@@ -22,12 +22,17 @@ public class Library {
         });
         int result = 0;
         int booksMax = booksPerDay*workingDays(day);
-        optimalBooks = booksMax;
-        for (int i = 0; i < booksMax; i++) {
+        optimalBooks = Math.min(booksMax,numOfBooks);
+        for (int i = 0; i < optimalBooks; i++) {
              result += books.get(i).score;
         }
         return result;
     }
 
-
+    public void scan(int day){
+        maxScore(day);
+        for (int i = 0; i < optimalBooks; i++) {
+            scannedBooks.add(books.get(i));
+        }
+    }
 }

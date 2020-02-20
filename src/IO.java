@@ -88,11 +88,11 @@ public class IO {
     }
 
     public static void writeOutPutToFile (List<Library> libs){
-        Path path = Paths.get("c:/output.txt");
+        Path path = Paths.get(outputFile);
         try (BufferedWriter writer = Files.newBufferedWriter(path))
         {
             List<OutPutFile> outPouts = LibraryOutPut.generateOutPutList(libs);
-            writer.write(libs.size());
+            writer.write(libs.size()+"");
             writer.newLine();
             for(OutPutFile o : outPouts){
                 writer.write(o.getIdAndBooksNum());
